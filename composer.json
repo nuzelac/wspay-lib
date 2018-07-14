@@ -22,5 +22,6 @@
         "psr-4": {
             "WSPayLib\\": "src/"
         }
-    }
+    },
+    "version": "1.0.0"
 }
