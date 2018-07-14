@@ -24,7 +24,7 @@ class SignatureHelper
     public function calculateSignature($shopId, $orderId, $amount) {
         $amountForSignature = $this->cleanAmount($amount);
 
-        return md5($shopId . $this->secretKey . $orderId . $this->secretKey . $amountForSignature . $this->secretKey);
+        return md5(join($this->secretKey, array($shopId, $orderId, $amountForSignature)) . $this->secretKey);
     }
 
     public function calculateValidationSignature($shopId, $orderId, $success, $approvalCode) {
